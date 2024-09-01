@@ -2,6 +2,12 @@
 
 . "$IPKG_INSTROOT/etc/mihomo/scripts/constants.sh"
 
+# disable dns_redirect if needed [ImmortalWrt]
+uci show dhcp | grep -q 'dns_redirect' && {
+	uci set $(uci show dhcp | grep dns_redirect | sed "s+=.*$+=0+g")
+	uci commit dhcp
+}
+
 # check mihomo.config.init
 init=$(uci -q get mihomo.config.init); [ -z "$init" ] && return
 
