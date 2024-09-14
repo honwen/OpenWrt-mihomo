@@ -136,9 +136,7 @@ start_service() {
 		fi
 		log "Use Subscription: $subscription_name"
 	else
-		log "No profile/subscription selected."
-		log "Exiting..."
-		return
+		log "Without Profile"
 	fi
 	# mixin
 	if [ "$mixin" == 0 ]; then

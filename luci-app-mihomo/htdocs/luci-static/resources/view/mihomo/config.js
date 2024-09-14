@@ -112,6 +112,7 @@ return view.extend({
 
         o = s.option(form.ListValue, 'profile', _('Choose Profile'));
         o.optional = true;
+        o.rmempty = false;
 
         for (const profile of profiles) {
             o.value('file:' + profile.name, _('File:') + profile.name);
